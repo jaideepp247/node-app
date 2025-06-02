@@ -3,12 +3,16 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/node-app
+
 hooks:
   BeforeInstall:
     - location: scripts/stop_app.sh
       timeout: 60
       runas: ubuntu
   AfterInstall:
+    - location: scripts/fix_permissions.sh
+      timeout: 60
+      runas: root
     - location: scripts/install_dependencies.sh
       timeout: 60
       runas: ubuntu

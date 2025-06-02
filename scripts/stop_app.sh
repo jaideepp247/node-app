@@ -1,2 +1,2 @@
 #!/bin/bash
-pm2 delete all || true
+pm2 stop app || true
